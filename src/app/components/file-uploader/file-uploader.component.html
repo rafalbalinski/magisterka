@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>Import plików</mat-card-title>
+
+  <mat-card-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Data z nazwy folderu</mat-label>
+      <input matInput type="text" placeholder="yyyy-mm-dd_hh-mm-ss" [formControl]="dateFormField">
+    </mat-form-field>
+
+    <div class="dropzone"
+         dropzone
+         [class.dropzone--hovered]="isHovered"
+         [class.dropzone--uploaded]="(store.blinks | async).length > 0"
+         (hovered)="onDropzoneHover($event)"
+         (dropped)="onBlinkingFileDrop($event)">
+      <span *ngIf="(store.blinks | async).length === 0; else fileImportSuccess" class="dropzone__title">Upuść plik z mrugnięciami</span>
+    </div>
+
+    <div class="dropzone"
+         dropzone
+         [class.dropzone--hovered]="isHovered"
+         [class.dropzone--uploaded]="(store.blinks | async).length > 0"
+         (hovered)="onDropzoneHover($event)"
+         (dropped)="onFixationsBlinkingFileDrop($event)">
+      <span *ngIf="(store.fixations | async).length === 0; else fileImportSuccess" class="dropzone__title">Upuść plik z fiksacjami</span>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="onSave()" [disabled]="dateFormField.invalid"> Zapisz</button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #fileImportSuccess>
+  <div class="dropzone__file-import-success-info">
+    <mat-icon>check_circle_outline</mat-icon>
+    <span>Plik zaimportowano poprawnie</span>
+  </div>
+</ng-template>

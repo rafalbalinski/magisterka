@@ -1,0 +1,37 @@
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  border: 1px dashed rgba(0, 0, 0, 0.38);
+  border-radius: 10px;
+
+  &--hovered {
+    border: 1px solid rgba(0, 0, 0, 0.38);
+  }
+
+  &--uploaded {
+    border: 1px dashed rgba(13, 138, 28, 0.38);
+  }
+
+  &__title {
+    color: rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__file-import-success-info {
+    display: flex;
+    align-items: center;
+    color: rgba(13, 138, 28, 0.38);
+
+    span  {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+
+.mat-mdc-card-actions {
+  justify-content: end;
+}

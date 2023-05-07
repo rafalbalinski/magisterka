@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title>Wyniki</mat-card-title>
+
+  <mat-card-content>
+    <table>
+      <tr>
+        <th></th>
+        <th>ZAD 1</th>
+        <th>ZAD 2</th>
+        <th>ZAD 3</th>
+        <th>ZAD 4</th>
+        <th>ZAD 5</th>
+      </tr>
+      <tr>
+        <td>Mrugnięcia</td>
+        <td>{{ (store.numberOfBlinks | async)?.taskOne }}</td>
+        <td>{{ (store.numberOfBlinks | async)?.taskTwo }}</td>
+        <td>{{ (store.numberOfBlinks | async)?.taskThree }}</td>
+        <td>{{ (store.numberOfBlinks | async)?.taskFour }}</td>
+        <td>{{ (store.numberOfBlinks | async)?.taskFive }}</td>
+      </tr>
+      <tr>
+        <td>Średni czas fiksacji</td>
+        <td>{{ (store.averageFixationTimes | async)?.taskOne }}</td>
+        <td>{{ (store.averageFixationTimes | async)?.taskTwo }}</td>
+        <td>{{ (store.averageFixationTimes | async)?.taskThree }}</td>
+        <td>{{ (store.averageFixationTimes | async)?.taskFour }}</td>
+        <td>{{ (store.averageFixationTimes | async)?.taskFive }}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-flat-button color="primary"
+      [disabled]="!(store.timestampRangesFormValidation | async) || !(store.timestampFormValidation | async) || (store.blinks | async).length === 0 || (store.fixations | async).length === 0 || (store.timestamp | async) === 0"
+      (click)="calculate()">OBLICZ</button>
+  </mat-card-actions>
+
+</mat-card>
+
+

@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-title>Czasy</mat-card-title>
+
+  <mat-card-content [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>ZAD 1 (czas trwania)</mat-label>
+      <input matInput type="text" placeholder="mm:ss.ms" formControlName="taskOneDuration">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ZAD 2 (czas trwania)</mat-label>
+      <input matInput type="text" placeholder="mm:ss.ms" formControlName="taskTwoDuration">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ZAD 3 (czas trwania)</mat-label>
+      <input matInput type="text" placeholder="mm:ss.ms" formControlName="taskThreeDuration">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ZAD 4 (czas trwania)</mat-label>
+      <input matInput type="text" placeholder="mm:ss.ms" formControlName="taskFourDuration">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>ZAD 5 (czas trwania)</mat-label>
+      <input matInput type="text" placeholder="mm:ss.ms" formControlName="taskFiveDuration">
+    </mat-form-field>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="onSave()" [disabled]="form.invalid">Zapisz</button>
+  </mat-card-actions>
+</mat-card>
+
+
